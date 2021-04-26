@@ -7,14 +7,8 @@
 
 import Foundation
 
-struct Product:Codable {
-    let id: Int
+struct Product: Codable {
+    let productID: Int
+    let categoryID: Int
     let name: String
-    let price: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id_product"
-        case name = "product_name"
-        case price = "price"
-    }
 }

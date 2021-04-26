@@ -7,7 +7,6 @@
 
 import Foundation
 
-struct ProductListResult: Codable {
-    //let page: Int
-    let products: [Product]
+struct GetProductListResponse: Codable {
+    let list: [Product]
 }
