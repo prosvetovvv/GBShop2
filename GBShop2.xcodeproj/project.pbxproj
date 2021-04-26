@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,16 +23,23 @@
 		E1D50CD02636CD7900E9F688 /* ProductRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CCE2636CD7800E9F688 /* ProductRequest.swift */; };
 		E1D50CD12636CD7900E9F688 /* ProductRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CCF2636CD7900E9F688 /* ProductRequestFactory.swift */; };
 		E1D50CDB2636CDD300E9F688 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CD72636CDD300E9F688 /* User.swift */; };
-		E1D50CDC2636CDD300E9F688 /* EditProfileResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CD82636CDD300E9F688 /* EditProfileResult.swift */; };
-		E1D50CDD2636CDD300E9F688 /* LogoutResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CD92636CDD300E9F688 /* LogoutResult.swift */; };
+		E1D50CDC2636CDD300E9F688 /* EditProfileResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CD82636CDD300E9F688 /* EditProfileResponse.swift */; };
+		E1D50CDD2636CDD300E9F688 /* LogoutResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CD92636CDD300E9F688 /* LogoutResponse.swift */; };
 		E1D50CDE2636CDD300E9F688 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CDA2636CDD300E9F688 /* LoginResponse.swift */; };
-		E1D50CE52636CE0A00E9F688 /* ProductListResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CE32636CE0A00E9F688 /* ProductListResult.swift */; };
+		E1D50CE52636CE0A00E9F688 /* GetProductListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CE32636CE0A00E9F688 /* GetProductListResponse.swift */; };
 		E1D50CE62636CE0A00E9F688 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CE42636CE0A00E9F688 /* Product.swift */; };
 		E1D50CF32636CEAD00E9F688 /* RequestRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CEE2636CEAC00E9F688 /* RequestRouter.swift */; };
 		E1D50CF42636CEAD00E9F688 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CEF2636CEAD00E9F688 /* DataRequest.swift */; };
 		E1D50CF52636CEAD00E9F688 /* AbstractRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CF02636CEAD00E9F688 /* AbstractRequestFactory.swift */; };
 		E1D50CF62636CEAD00E9F688 /* ErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CF12636CEAD00E9F688 /* ErrorParser.swift */; };
 		E1D50CF72636CEAD00E9F688 /* AbstractErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50CF22636CEAD00E9F688 /* AbstractErrorParser.swift */; };
+		E1D50D182636DDCF00E9F688 /* FeedbackRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D172636DDCF00E9F688 /* FeedbackRequestFactory.swift */; };
+		E1D50D1D2636DF4000E9F688 /* AddFeedbackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D1C2636DF4000E9F688 /* AddFeedbackResponse.swift */; };
+		E1D50D222636DFC400E9F688 /* FeedbackRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D212636DFC400E9F688 /* FeedbackRequest.swift */; };
+		E1D50D272636E42F00E9F688 /* FeedbackRequestModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D262636E42F00E9F688 /* FeedbackRequestModels.swift */; };
+		E1D50D2F2636EFE800E9F688 /* DeleteFeedbackResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D2E2636EFE800E9F688 /* DeleteFeedbackResponse.swift */; };
+		E1D50D342636F90A00E9F688 /* GetFeedbackListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D332636F90A00E9F688 /* GetFeedbackListResponse.swift */; };
+		E1D50D392636F97100E9F688 /* Feedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50D382636F97100E9F688 /* Feedback.swift */; };
 		FA8DA93B44090A6100ACFFF3 /* Pods_GBShop2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C1DFA8C37C39C8217349B4B /* Pods_GBShop2.framework */; };
 /* End PBXBuildFile section */
 
@@ -83,16 +90,23 @@
 		E1D50CCE2636CD7800E9F688 /* ProductRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRequest.swift; sourceTree = "<group>"; };
 		E1D50CCF2636CD7900E9F688 /* ProductRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRequestFactory.swift; sourceTree = "<group>"; };
 		E1D50CD72636CDD300E9F688 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E1D50CD82636CDD300E9F688 /* EditProfileResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileResult.swift; sourceTree = "<group>"; };
-		E1D50CD92636CDD300E9F688 /* LogoutResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutResult.swift; sourceTree = "<group>"; };
+		E1D50CD82636CDD300E9F688 /* EditProfileResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileResponse.swift; sourceTree = "<group>"; };
+		E1D50CD92636CDD300E9F688 /* LogoutResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutResponse.swift; sourceTree = "<group>"; };
 		E1D50CDA2636CDD300E9F688 /* LoginResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
-		E1D50CE32636CE0A00E9F688 /* ProductListResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListResult.swift; sourceTree = "<group>"; };
+		E1D50CE32636CE0A00E9F688 /* GetProductListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProductListResponse.swift; sourceTree = "<group>"; };
 		E1D50CE42636CE0A00E9F688 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		E1D50CEE2636CEAC00E9F688 /* RequestRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouter.swift; sourceTree = "<group>"; };
 		E1D50CEF2636CEAD00E9F688 /* DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		E1D50CF02636CEAD00E9F688 /* AbstractRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractRequestFactory.swift; sourceTree = "<group>"; };
 		E1D50CF12636CEAD00E9F688 /* ErrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorParser.swift; sourceTree = "<group>"; };
 		E1D50CF22636CEAD00E9F688 /* AbstractErrorParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AbstractErrorParser.swift; sourceTree = "<group>"; };
+		E1D50D172636DDCF00E9F688 /* FeedbackRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRequestFactory.swift; sourceTree = "<group>"; };
+		E1D50D1C2636DF4000E9F688 /* AddFeedbackResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFeedbackResponse.swift; sourceTree = "<group>"; };
+		E1D50D212636DFC400E9F688 /* FeedbackRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRequest.swift; sourceTree = "<group>"; };
+		E1D50D262636E42F00E9F688 /* FeedbackRequestModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackRequestModels.swift; sourceTree = "<group>"; };
+		E1D50D2E2636EFE800E9F688 /* DeleteFeedbackResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFeedbackResponse.swift; sourceTree = "<group>"; };
+		E1D50D332636F90A00E9F688 /* GetFeedbackListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetFeedbackListResponse.swift; sourceTree = "<group>"; };
+		E1D50D382636F97100E9F688 /* Feedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feedback.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,7 +147,6 @@
 				949526AD0E8AAE3654C67E4A /* Pods-GBShop2Tests.debug.xcconfig */,
 				1786FCB435135A0986920F83 /* Pods-GBShop2Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -250,6 +263,7 @@
 			children = (
 				E1D50CB92636CD1400E9F688 /* AccountRequestModels.swift */,
 				E1D50CB82636CD1400E9F688 /* ProductRequestProduct.swift */,
+				E1D50D262636E42F00E9F688 /* FeedbackRequestModels.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -257,6 +271,7 @@
 		E1D50CBF2636CD2300E9F688 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				E1D50D0C2636DC2E00E9F688 /* Feedback */,
 				E1D50CC02636CD2E00E9F688 /* Account */,
 				E1D50CCD2636CD6300E9F688 /* Product */,
 				E1D50CC82636CD5D00E9F688 /* RequestFactory.swift */,
@@ -276,8 +291,8 @@
 		E1D50CCD2636CD6300E9F688 /* Product */ = {
 			isa = PBXGroup;
 			children = (
-				E1D50CCE2636CD7800E9F688 /* ProductRequest.swift */,
 				E1D50CCF2636CD7900E9F688 /* ProductRequestFactory.swift */,
+				E1D50CCE2636CD7800E9F688 /* ProductRequest.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -285,6 +300,7 @@
 		E1D50CD52636CD9C00E9F688 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				E1D50D0D2636DCE300E9F688 /* Feedback */,
 				E1D50CE22636CDE900E9F688 /* Product */,
 				E1D50CD62636CDBF00E9F688 /* Account */,
 			);
@@ -294,9 +310,9 @@
 		E1D50CD62636CDBF00E9F688 /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				E1D50CD82636CDD300E9F688 /* EditProfileResult.swift */,
+				E1D50CD82636CDD300E9F688 /* EditProfileResponse.swift */,
 				E1D50CDA2636CDD300E9F688 /* LoginResponse.swift */,
-				E1D50CD92636CDD300E9F688 /* LogoutResult.swift */,
+				E1D50CD92636CDD300E9F688 /* LogoutResponse.swift */,
 				E1D50CD72636CDD300E9F688 /* User.swift */,
 			);
 			path = Account;
@@ -306,7 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				E1D50CE42636CE0A00E9F688 /* Product.swift */,
-				E1D50CE32636CE0A00E9F688 /* ProductListResult.swift */,
+				E1D50CE32636CE0A00E9F688 /* GetProductListResponse.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
@@ -343,6 +359,26 @@
 				E1D50CEE2636CEAC00E9F688 /* RequestRouter.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		E1D50D0C2636DC2E00E9F688 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				E1D50D172636DDCF00E9F688 /* FeedbackRequestFactory.swift */,
+				E1D50D212636DFC400E9F688 /* FeedbackRequest.swift */,
+			);
+			path = Feedback;
+			sourceTree = "<group>";
+		};
+		E1D50D0D2636DCE300E9F688 /* Feedback */ = {
+			isa = PBXGroup;
+			children = (
+				E1D50D1C2636DF4000E9F688 /* AddFeedbackResponse.swift */,
+				E1D50D2E2636EFE800E9F688 /* DeleteFeedbackResponse.swift */,
+				E1D50D332636F90A00E9F688 /* GetFeedbackListResponse.swift */,
+				E1D50D382636F97100E9F688 /* Feedback.swift */,
+			);
+			path = Feedback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -587,21 +623,28 @@
 				E1D50C472636C92400E9F688 /* AppDelegate.swift in Sources */,
 				E1D50CE62636CE0A00E9F688 /* Product.swift in Sources */,
 				E1D50CD02636CD7900E9F688 /* ProductRequest.swift in Sources */,
-				E1D50CDC2636CDD300E9F688 /* EditProfileResult.swift in Sources */,
+				E1D50CDC2636CDD300E9F688 /* EditProfileResponse.swift in Sources */,
 				E1D50CC32636CD3F00E9F688 /* AccountRequest.swift in Sources */,
+				E1D50D1D2636DF4000E9F688 /* AddFeedbackResponse.swift in Sources */,
+				E1D50D272636E42F00E9F688 /* FeedbackRequestModels.swift in Sources */,
 				E1D50CF72636CEAD00E9F688 /* AbstractErrorParser.swift in Sources */,
+				E1D50D342636F90A00E9F688 /* GetFeedbackListResponse.swift in Sources */,
+				E1D50D392636F97100E9F688 /* Feedback.swift in Sources */,
 				E1D50CF42636CEAD00E9F688 /* DataRequest.swift in Sources */,
 				E1D50CC42636CD3F00E9F688 /* AccountRequestFactory.swift in Sources */,
-				E1D50CE52636CE0A00E9F688 /* ProductListResult.swift in Sources */,
+				E1D50CE52636CE0A00E9F688 /* GetProductListResponse.swift in Sources */,
 				E1D50CF32636CEAD00E9F688 /* RequestRouter.swift in Sources */,
 				E1D50CF52636CEAD00E9F688 /* AbstractRequestFactory.swift in Sources */,
 				E1D50CDE2636CDD300E9F688 /* LoginResponse.swift in Sources */,
-				E1D50CDD2636CDD300E9F688 /* LogoutResult.swift in Sources */,
+				E1D50CDD2636CDD300E9F688 /* LogoutResponse.swift in Sources */,
 				E1D50CC92636CD5D00E9F688 /* RequestFactory.swift in Sources */,
 				E1D50CBA2636CD1400E9F688 /* ProductRequestProduct.swift in Sources */,
 				E1D50C852636CC4D00E9F688 /* Stubs.swift in Sources */,
+				E1D50D2F2636EFE800E9F688 /* DeleteFeedbackResponse.swift in Sources */,
+				E1D50D222636DFC400E9F688 /* FeedbackRequest.swift in Sources */,
 				E1D50CDB2636CDD300E9F688 /* User.swift in Sources */,
 				E1D50CBB2636CD1400E9F688 /* AccountRequestModels.swift in Sources */,
+				E1D50D182636DDCF00E9F688 /* FeedbackRequestFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
