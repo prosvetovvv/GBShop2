@@ -8,7 +8,7 @@
 import Foundation
 import Alamofire
 
-struct RequestFactory {
+class RequestFactory {
     let sessionQueue: DispatchQueue
     let baseUrl: URL
     
@@ -16,22 +16,36 @@ struct RequestFactory {
         let configuration = URLSessionConfiguration.default
         configuration.httpShouldSetCookies = false
         configuration.headers = .default
-        //configuration.headers = ["Content-Type": "application/json", "Content-Length": "calculated when request is sent"]
         let manager = Session(configuration: configuration)
         return manager
     }()
+    
+    init (sessionQueue: DispatchQueue, baseUrl: URL) {
+        self.sessionQueue = sessionQueue
+        self.baseUrl = baseUrl
+    }
      
     func makeErrorParser() -> AbstractErrorParser {
         ErrorParser()
     }
     
-    mutating func makeAccountRequestFactory() -> AccountRequestFactory {
+    func makeAccountRequestFactory() -> AccountRequestFactory {
         let errorParser = makeErrorParser()
         return AccountRequest(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: baseUrl)
     }
     
-    mutating func makeProductRequestFactory() -> ProductRequestFactory {
+    func makeProductRequestFactory() -> ProductRequestFactory {
         let errorParser = makeErrorParser()
         return ProductRequest(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: baseUrl)
+    }
+    
+    func makeFeedbackRequestFactory() -> FeedbackRequestFactory {
+        let errorParser = makeErrorParser()
+        return FeedbackRequest(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: baseUrl)
+    }
+    
+    func makeBasketRequestFactory() -> BasketRequestFactory {
+        let errorParser = makeErrorParser()
+        return BasketRequest(errorParser: errorParser, sessionManager: commonSession, queue: sessionQueue, baseUrl: baseUrl)
     }
 }

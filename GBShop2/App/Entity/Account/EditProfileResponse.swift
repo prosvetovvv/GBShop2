@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct EditProfileResult: Codable {
+struct EditProfileResponse: Codable {
     let result: Int
 }

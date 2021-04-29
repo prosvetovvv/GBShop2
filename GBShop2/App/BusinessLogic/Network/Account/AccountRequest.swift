@@ -8,11 +8,18 @@
 import Foundation
 import Alamofire
 
-struct AccountRequest: AbstractRequestFactory {
+class AccountRequest: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
+    
+    init(errorParser: AbstractErrorParser, sessionManager: Session, queue: DispatchQueue, baseUrl: URL) {
+        self.errorParser = errorParser
+        self.sessionManager = sessionManager
+        self.queue = queue
+        self.baseUrl = baseUrl
+    }
 }
 
 extension AccountRequest: AccountRequestFactory {
@@ -21,12 +28,12 @@ extension AccountRequest: AccountRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func logout(idUser: Int, completionHandler: @escaping (AFDataResponse<LogoutResult>) -> Void) {
+    func logout(idUser: Int, completionHandler: @escaping (AFDataResponse<LogoutResponse>) -> Void) {
         let requestModel = LogoutModel(baseUrl: baseUrl, idUser: idUser)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func editProfile(id: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<EditProfileResult>) -> Void) {
+    func editProfile(id: Int, userName: String, password: String, email: String, gender: String, creditCard: String, bio: String, completionHandler: @escaping (AFDataResponse<EditProfileResponse>) -> Void) {
         let requestModel = EditProfileModel(baseUrl: baseUrl, id: id, userName: userName, password: password, email: email, gender: gender, creditCard: creditCard, bio: bio)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
