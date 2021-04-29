@@ -11,4 +11,5 @@ struct Product: Codable {
     let productID: Int
     let categoryID: Int
     let name: String
+    let price: Double
 }

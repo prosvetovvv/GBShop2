@@ -30,51 +30,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let accountRequestFactory = requestFactory.makeAccountRequestFactory()
         let feedbackRequestFactory = requestFactory.makeFeedbackRequestFactory()
         let productRequestFactory = requestFactory.makeProductRequestFactory()
+        let basketRequestFactory = requestFactory.makeBasketRequestFactory()
         
-        accountRequestFactory.login(userName: "Somebody", password: "mypassword") { response in
-            switch response.result {
-            case .success(let login):
-                print(login)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        accountRequestFactory.logout(idUser: 123) { response in
-            switch response.result {
-            case .success(let quit):
-                print(quit)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        feedbackRequestFactory.addFeedback(userID: 123, text: "Good product") { response in
-            switch response.result {
-            case .success(let feedback):
-                print(feedback)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        feedbackRequestFactory.deleteFeedback(feedbackID: 24) { response in
-            switch response.result {
-            case .success(let feedback):
-                print(feedback)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
-        
-        feedbackRequestFactory.getFeedbackList(productID: 111) { response in
-            switch response.result {
-            case .success(let list):
-                print(list)
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
-        }
+//        accountRequestFactory.login(userName: "Somebody", password: "mypassword") { response in
+//            switch response.result {
+//            case .success(let login):
+//                print(login)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        accountRequestFactory.logout(idUser: 123) { response in
+//            switch response.result {
+//            case .success(let quit):
+//                print(quit)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        feedbackRequestFactory.addFeedback(userID: 123, text: "Good product") { response in
+//            switch response.result {
+//            case .success(let feedback):
+//                print(feedback)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        feedbackRequestFactory.deleteFeedback(feedbackID: 24) { response in
+//            switch response.result {
+//            case .success(let feedback):
+//                print(feedback)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//        
+//        feedbackRequestFactory.getFeedbackList(productID: 111) { response in
+//            switch response.result {
+//            case .success(let list):
+//                print(list)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
         
         //        accountRequestFactory.editProfile(id: 123,
         //                                          userName: "Somebody",
@@ -91,14 +92,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            }
         //        }
         
-        productRequestFactory.getProductList(categoryID: 11) { response in
+//        productRequestFactory.getProductList(categoryID: 11) { response in
+//            switch response.result {
+//            case .success(let list):
+//                print(list)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+        
+        let newProduct = Product(productID: 222, categoryID: 22, name: "Product2", price: 200.0)
+        //let newBasketItem = BasketItem(product: newProduct, count: 1)
+
+        basketRequestFactory.addToBasket(productID: newProduct.productID, categoryID: newProduct.categoryID, name: newProduct.name, price: newProduct.price, count: 1) { response in
             switch response.result {
-            case .success(let list):
-                print(list)
+            case .success(let response):
+                print(response)
             case .failure(let error):
-                print(error.localizedDescription)
+                print(error)
             }
         }
+        
+//        basketRequestFactory.getBasket(userID: 123) { response in
+//            switch response.result {
+//            case .success(let basketItems):
+//                print(basketItems)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         return true
     }
