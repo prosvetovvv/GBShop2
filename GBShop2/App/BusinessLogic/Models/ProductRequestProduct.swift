@@ -8,17 +8,15 @@
 import Foundation
 import Alamofire
 
-struct ProductList: RequestRouter {
+struct ProductListModel: RequestRouter {
     let baseUrl: URL
     let method: HTTPMethod = .post
-    let path: String = "catalogData.json"
+    let path: String = "get_products"
     
-    let page: Int
-    let id: Int
+    let category: Category
     var parameters: Parameters? {
         return [
-            "page_number": page,
-            "id_category": id
+            "category": category.rawValue
         ]
     }
 }
