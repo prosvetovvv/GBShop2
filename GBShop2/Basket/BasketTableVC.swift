@@ -8,9 +8,10 @@
 import UIKit
 
 class BasketTableVC: UITableViewController {
-    
     private let basketRequestFactory: BasketRequestFactory
     private var basketItems = [BasketItem]()
+    
+    // MARK: - Init
     
     init(basketRequestFactory: BasketRequestFactory) {
         self.basketRequestFactory = basketRequestFactory
@@ -23,18 +24,23 @@ class BasketTableVC: UITableViewController {
     
     // MARK: - Lifecycle
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        getBasket()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        getBasket()
     }
     
     // MARK: - Private
     
     private func setup() {
         tableView.rowHeight = 80
-        navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(BasketItemCell.self, forCellReuseIdentifier: BasketItemCell.id)
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func getBasket() {

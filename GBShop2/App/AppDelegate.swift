@@ -7,30 +7,16 @@
 
 import UIKit
 
-struct AppConfig {
-    static let sessionQueue = DispatchQueue.global(qos: .utility)
-    //static let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    //static let baseUrl = URL(string: "https://powerful-reef-79731.herokuapp.com/")!
-    
-    static var baseUrl: URL {
-        var components = URLComponents()
-        components.scheme = "http"
-        components.host = "localhost"
-        components.port = 8080
-        return components.url!
-    }
-}
-
 @main
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var requestFactory = RequestFactory(sessionQueue: AppConfig.sessionQueue, baseUrl: AppConfig.baseUrl)
+    //var requestFactory = RequestFactory(sessionQueue: AppConfig.sessionQueue, baseUrl: AppConfig.baseUrl)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let accountRequestFactory = requestFactory.makeAccountRequestFactory()
-        let feedbackRequestFactory = requestFactory.makeFeedbackRequestFactory()
-        let productRequestFactory = requestFactory.makeProductRequestFactory()
-        let basketRequestFactory = requestFactory.makeBasketRequestFactory()
+//        let accountRequestFactory = requestFactory.makeAccountRequestFactory()
+//        let feedbackRequestFactory = requestFactory.makeFeedbackRequestFactory()
+//        let productRequestFactory = requestFactory.makeProductRequestFactory()
+//        let basketRequestFactory = requestFactory.makeBasketRequestFactory()
         
 //        accountRequestFactory.login(userName: "Somebody", password: "mypassword") { response in
 //            switch response.result {
@@ -101,17 +87,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        let newProduct = Product(productID: 111, category: "cat", name: "Product1", price: 100.0)
+        //let newProduct = Product(productID: 111, category: "cat", name: "Product1", price: 100.0)
         //let newBasketItem = BasketItem(product: newProduct, count: 1)
 
-        basketRequestFactory.addToBasket(productID: newProduct.productID, category: newProduct.category, name: newProduct.name, price: newProduct.price, count: 1) { response in
-            switch response.result {
-            case .success(let response):
-                print(response)
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        basketRequestFactory.addToBasket(productID: newProduct.productID, category: newProduct.category, name: newProduct.name, price: newProduct.price, count: 1) { response in
+//            switch response.result {
+//            case .success(let response):
+//                print(response)
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
 //        basketRequestFactory.getBasket(userID: 123) { response in
 //            switch response.result {

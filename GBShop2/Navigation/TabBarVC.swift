@@ -21,15 +21,15 @@ class TabBarVC: UITabBarController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         viewControllers = [createCategoryNC(), createBasketNC(basketRequestFactory: basketRequestFactory)]
     }
     
     func createCategoryNC() -> UINavigationController {
-        let categoryVC = CategoryTableVC(productRequestFactory: productRequestFactory)
+        let categoryVC = CategoryTableVC(productRequestFactory: productRequestFactory, basketRequestFactory: basketRequestFactory)
         categoryVC.title = "Category"
         categoryVC.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "square.grid.3x3"), selectedImage: UIImage(systemName: "square.grid.3x3.fill"))
         
@@ -43,7 +43,4 @@ class TabBarVC: UITabBarController {
         
         return UINavigationController(rootViewController: basketVC)
     }
-    
-
-
 }

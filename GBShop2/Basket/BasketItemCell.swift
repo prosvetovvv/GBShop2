@@ -8,12 +8,12 @@
 import UIKit
 
 class BasketItemCell: UITableViewCell {
-    
     static let id = "BasketItemCell"
-    
     let nameLabel = UILabel()
     let countLabel = UILabel()
     let priceLabel = UILabel()
+    
+    // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -28,31 +28,15 @@ class BasketItemCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public
+    
     func set(with basketItem: BasketItem) {
         nameLabel.text = basketItem.product.name
         countLabel.text = "\(basketItem.count)"
         priceLabel.text = "\(basketItem.product.price) р."
     }
     
-    override func updateConstraints() {
-        super.updateConstraints()
-        NSLayoutConstraint.activate([
-            nameLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -10.0),
-            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.0),
-            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.0),
-            nameLabel.heightAnchor.constraint(equalToConstant: 20.0),
-            
-            countLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 10),
-            countLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.0),
-            countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.0),
-            countLabel.heightAnchor.constraint(equalToConstant: 15.0),
-            
-            priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.0),
-            priceLabel.widthAnchor.constraint(equalToConstant: 100.0),
-            priceLabel.heightAnchor.constraint(equalToConstant: 35.0)
-        ])
-    }
+    // MARK: - Setup UI elements
     
     func setupNameLabel() {
         addSubview(nameLabel)
@@ -88,5 +72,27 @@ class BasketItemCell: UITableViewCell {
         priceLabel.numberOfLines = 1
         priceLabel.lineBreakMode = .byTruncatingTail
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    // MARK: - Layout
+    
+    override func updateConstraints() {
+        super.updateConstraints()
+        NSLayoutConstraint.activate([
+            nameLabel.bottomAnchor.constraint(equalTo: centerYAnchor, constant: -10.0),
+            nameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.0),
+            nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.0),
+            nameLabel.heightAnchor.constraint(equalToConstant: 20.0),
+            
+            countLabel.topAnchor.constraint(equalTo: centerYAnchor, constant: 10),
+            countLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12.0),
+            countLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -50.0),
+            countLabel.heightAnchor.constraint(equalToConstant: 15.0),
+            
+            priceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            priceLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12.0),
+            priceLabel.widthAnchor.constraint(equalToConstant: 100.0),
+            priceLabel.heightAnchor.constraint(equalToConstant: 35.0)
+        ])
     }
 }
