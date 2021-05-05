@@ -10,9 +10,11 @@ import UIKit
 class TabBarVC: UITabBarController {
     
     private let basketRequestFactory: BasketRequestFactory
+    private let productRequestFactory: ProductRequestFactory
     
-    init(basketRequestFactory: BasketRequestFactory) {
+    init(basketRequestFactory: BasketRequestFactory, productRequestFactory: ProductRequestFactory) {
         self.basketRequestFactory = basketRequestFactory
+        self.productRequestFactory = productRequestFactory
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,7 +29,7 @@ class TabBarVC: UITabBarController {
     }
     
     func createCategoryNC() -> UINavigationController {
-        let categoryVC = CategoryTableVC()
+        let categoryVC = CategoryTableVC(productRequestFactory: productRequestFactory)
         categoryVC.title = "Category"
         categoryVC.tabBarItem = UITabBarItem(title: "Category", image: UIImage(systemName: "square.grid.3x3"), selectedImage: UIImage(systemName: "square.grid.3x3.fill"))
         

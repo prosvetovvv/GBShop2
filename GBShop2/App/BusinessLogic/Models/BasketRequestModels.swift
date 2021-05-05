@@ -25,14 +25,14 @@ struct AddToBasketModel: RequestRouter {
     var path = "add_to_basket"
     //let basketItem: BasketItem
     let productID: Int
-    let categoryID: Int
+    let category: String
     let name: String
     let price: Double
     let count: Int
     
     var parameters: Parameters? {
         ["product": [ "productID": productID,
-                      "categoryID": categoryID,
+                      "category": category,
                       "name": name,
                       "price": price],
          "count": count]

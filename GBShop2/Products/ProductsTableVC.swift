@@ -1,30 +1,23 @@
 //
-//  CategoryTableVC.swift
+//  ProductsTableVC.swift
 //  GBShop2
 //
-//  Created by Vitaly Prosvetov on 29.04.2021.
+//  Created by Vitaly Prosvetov on 04.05.2021.
 //
 
 import UIKit
 
-class CategoryTableVC: UITableViewController {
+class ProductsTableVC: UITableViewController {
     private let productRequestFactory: ProductRequestFactory
-    
-    //private let categories = ["Processors", "Motherboards", "HDD", "RAM", "Video"]
-//    private var categories: [String] {
-//        var result = [String]()
-//        Category.allCases.forEach {
-//            result.append($0.rawValue)
-//        }
-//        return result
-//    }
-    
-    private let cellId = "categoryCell"
+    private let cellId = "productCell"
+    private var products = [Product]()
+    private let category: Category
     
     // MARK: - Init
     
-    init(productRequestFactory: ProductRequestFactory) {
+    init(productRequestFactory: ProductRequestFactory, category: Category) {
         self.productRequestFactory = productRequestFactory
+        self.category = category
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,49 +25,50 @@ class CategoryTableVC: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARL: - Lifecycle
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setupTable()
+        setup()
+        getProducts()
     }
     
     // MARK: - Privates
     
-    private func setupTable() {
-        navigationController?.navigationBar.prefersLargeTitles = true
+    private func setup() {
+        title = category.rawValue
+        navigationController?.navigationBar.prefersLargeTitles = false
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+    }
+    
+    private func getProducts() {
+        productRequestFactory.getProductList(category: category) { [weak self] response in
+            guard let self = self else { return }
+            
+            switch response.result {
+            case .success(let products):
+                self.products = products
+                DispatchQueue.main.async { self.tableView.reloadData() }
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
     }
 
     // MARK: - Table view data source
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //categories.count
-        Category.allCases.count
+        products.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        let product = products[indexPath.row]
         
-        //cell.textLabel?.text = categories[indexPath.row]
-        cell.textLabel?.text = Category.allCases[indexPath.row].rawValue
-        
+        cell.textLabel?.text = product.name
+
         return cell
     }
-    
-    // MARK: - Table view data delegate
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //let category = categories[indexPath.row]
-        let category = Category.allCases[indexPath.row]
-        
-        let destinationVC = ProductsTableVC(productRequestFactory: productRequestFactory, category: category)
-        destinationVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(destinationVC, animated: true)
-    }
-    
 
     /*
     // Override to support conditional editing of the table view.

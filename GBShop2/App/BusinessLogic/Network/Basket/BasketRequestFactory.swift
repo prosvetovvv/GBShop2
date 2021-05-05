@@ -10,7 +10,5 @@ import Alamofire
 
 protocol BasketRequestFactory {
     func getBasket(userID: Int, completionHandler: @escaping (AFDataResponse<[BasketItem]>) -> Void)
-    //func addToBasket(item: BasketItem, completionHandler: @escaping (AFDataResponse<AddToBasketResponse>) -> Void)
-    //func addToBasket(product: Product, count: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResponse>) -> Void)
-    func addToBasket(productID: Int, categoryID: Int, name: String, price: Double, count: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResponse>) -> Void)
+    func addToBasket(productID: Int, category: String, name: String, price: Double, count: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResponse>) -> Void)
 }

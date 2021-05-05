@@ -12,12 +12,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let requestFactory = RequestFactory(sessionQueue: AppConfig.sessionQueue, baseUrl: AppConfig.baseUrl)
         let basketRequestFactory = requestFactory.makeBasketRequestFactory()
+        let productRequestFactory = requestFactory.makeProductRequestFactory()
         
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = TabBarVC(basketRequestFactory: basketRequestFactory)
-        //window?.rootViewController = LoginVC()
+        window?.rootViewController = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
         window?.makeKeyAndVisible()
         
         //CoreDataStack.shared.applicationDocumentsDirectory()

@@ -28,8 +28,8 @@ extension BasketRequest: BasketRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func addToBasket(productID: Int, categoryID: Int, name: String, price: Double, count: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResponse>) -> Void) {
-        let requestModel = AddToBasketModel(baseUrl: baseUrl, productID: productID, categoryID: categoryID, name: name, price: price, count: count)
+    func addToBasket(productID: Int, category: String, name: String, price: Double, count: Int, completionHandler: @escaping (AFDataResponse<AddToBasketResponse>) -> Void) {
+        let requestModel = AddToBasketModel(baseUrl: baseUrl, productID: productID, category: category, name: name, price: price, count: count)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     

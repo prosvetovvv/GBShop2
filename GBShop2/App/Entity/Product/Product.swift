@@ -7,9 +7,17 @@
 
 import Foundation
 
+enum Category: String, CaseIterable {
+    case processors
+    case motherboards
+    case hdd
+    case ram
+    case video
+}
+
 struct Product: Codable {
     let productID: Int
-    let categoryID: Int
+    let category: String
     let name: String
     let price: Double
 }

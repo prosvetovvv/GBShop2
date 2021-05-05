@@ -11,12 +11,12 @@ import Alamofire
 struct ProductListModel: RequestRouter {
     let baseUrl: URL
     let method: HTTPMethod = .post
-    let path: String = "get_product_list"
+    let path: String = "get_products"
     
-    let categoryID: Int
+    let category: Category
     var parameters: Parameters? {
         return [
-            "categoryID": categoryID
+            "category": category.rawValue
         ]
     }
 }

@@ -11,6 +11,8 @@
 		AA5EA52213E2B8BF1AA6FBBC /* Pods_GBShop2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E5D457BC7550A12CD57A3DE /* Pods_GBShop2Tests.framework */; };
 		E1C3C02C263AC45A000BA731 /* CategoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C02B263AC45A000BA731 /* CategoryTableVC.swift */; };
 		E1C3C031263AE858000BA731 /* BasketItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C030263AE858000BA731 /* BasketItemCell.swift */; };
+		E1C3C03726417CCD000BA731 /* ProductsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C03626417CCD000BA731 /* ProductsTableVC.swift */; };
+		E1C3C03F264286C2000BA731 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C03E264286C2000BA731 /* ProductVC.swift */; };
 		E1D50C472636C92400E9F688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50C462636C92400E9F688 /* AppDelegate.swift */; };
 		E1D50C502636C92500E9F688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D50C4F2636C92500E9F688 /* Assets.xcassets */; };
 		E1D50C532636C92500E9F688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D50C512636C92500E9F688 /* LaunchScreen.storyboard */; };
@@ -82,6 +84,8 @@
 		DE22DE60259D33ED5ED74F9E /* Pods-GBShop2-GBShop2UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GBShop2-GBShop2UITests.release.xcconfig"; path = "Target Support Files/Pods-GBShop2-GBShop2UITests/Pods-GBShop2-GBShop2UITests.release.xcconfig"; sourceTree = "<group>"; };
 		E1C3C02B263AC45A000BA731 /* CategoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableVC.swift; sourceTree = "<group>"; };
 		E1C3C030263AE858000BA731 /* BasketItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemCell.swift; sourceTree = "<group>"; };
+		E1C3C03626417CCD000BA731 /* ProductsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableVC.swift; sourceTree = "<group>"; };
+		E1C3C03E264286C2000BA731 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		E1D50C432636C92400E9F688 /* GBShop2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D50C462636C92400E9F688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1D50C4F2636C92500E9F688 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -180,6 +184,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E1C3C03526417BA6000BA731 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3C03626417CCD000BA731 /* ProductsTableVC.swift */,
+				E1C3C03E264286C2000BA731 /* ProductVC.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
 		E1D50C3A2636C92400E9F688 = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +218,7 @@
 		E1D50C452636C92400E9F688 /* GBShop2 */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3C03526417BA6000BA731 /* Products */,
 				E1D50D6126382C9C00E9F688 /* Category */,
 				E1D50D6026382C5700E9F688 /* Basket */,
 				E1D50D57263828E300E9F688 /* Navigation */,
@@ -701,6 +715,7 @@
 				E1D50D1D2636DF4000E9F688 /* AddFeedbackResponse.swift in Sources */,
 				E1D50D272636E42F00E9F688 /* FeedbackRequestModels.swift in Sources */,
 				E1D50CF72636CEAD00E9F688 /* AbstractErrorParser.swift in Sources */,
+				E1C3C03726417CCD000BA731 /* ProductsTableVC.swift in Sources */,
 				E1D50D342636F90A00E9F688 /* GetFeedbackListResponse.swift in Sources */,
 				E1D50D392636F97100E9F688 /* Feedback.swift in Sources */,
 				E1D50CF42636CEAD00E9F688 /* DataRequest.swift in Sources */,
@@ -714,6 +729,7 @@
 				E1D50CDD2636CDD300E9F688 /* LogoutResponse.swift in Sources */,
 				E1D50CC92636CD5D00E9F688 /* RequestFactory.swift in Sources */,
 				E1D50D5926382BE100E9F688 /* TabBarVC.swift in Sources */,
+				E1C3C03F264286C2000BA731 /* ProductVC.swift in Sources */,
 				E1D50CBA2636CD1400E9F688 /* ProductRequestProduct.swift in Sources */,
 				E1D50C852636CC4D00E9F688 /* Stubs.swift in Sources */,
 				E1D50D832639AF5B00E9F688 /* AddToBasketResponse.swift in Sources */,

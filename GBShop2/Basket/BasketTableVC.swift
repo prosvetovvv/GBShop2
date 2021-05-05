@@ -10,7 +10,7 @@ import UIKit
 class BasketTableVC: UITableViewController {
     
     private let basketRequestFactory: BasketRequestFactory
-    private var basketItems: [BasketItem]?
+    private var basketItems = [BasketItem]()
     
     init(basketRequestFactory: BasketRequestFactory) {
         self.basketRequestFactory = basketRequestFactory
@@ -25,13 +25,13 @@ class BasketTableVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTable()
+        setup()
         getBasket()
     }
     
     // MARK: - Private
     
-    private func setupTable() {
+    private func setup() {
         tableView.rowHeight = 80
         navigationController?.navigationBar.prefersLargeTitles = true
         tableView.register(BasketItemCell.self, forCellReuseIdentifier: BasketItemCell.id)
@@ -54,12 +54,11 @@ class BasketTableVC: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let basketItems = self.basketItems else { return 0 }
-        return basketItems.count
+        basketItems.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let basketItem = self.basketItems![indexPath.row]
+        let basketItem = self.basketItems[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: BasketItemCell.id, for: indexPath) as! BasketItemCell
         
         cell.set(with: basketItem)

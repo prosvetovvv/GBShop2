@@ -10,15 +10,15 @@ import UIKit
 struct AppConfig {
     static let sessionQueue = DispatchQueue.global(qos: .utility)
     //static let baseUrl = URL(string: "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/")!
-    static let baseUrl = URL(string: "https://powerful-reef-79731.herokuapp.com/")!
+    //static let baseUrl = URL(string: "https://powerful-reef-79731.herokuapp.com/")!
     
-//    static var baseUrl: URL {
-//        var components = URLComponents()
-//        components.scheme = "http"
-//        components.host = "localhost"
-//        components.port = 8080
-//        return components.url!
-//    }
+    static var baseUrl: URL {
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "localhost"
+        components.port = 8080
+        return components.url!
+    }
 }
 
 @main
@@ -101,10 +101,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            }
 //        }
         
-        let newProduct = Product(productID: 222, categoryID: 22, name: "Product2", price: 200.0)
+        let newProduct = Product(productID: 111, category: "cat", name: "Product1", price: 100.0)
         //let newBasketItem = BasketItem(product: newProduct, count: 1)
 
-        basketRequestFactory.addToBasket(productID: newProduct.productID, categoryID: newProduct.categoryID, name: newProduct.name, price: newProduct.price, count: 1) { response in
+        basketRequestFactory.addToBasket(productID: newProduct.productID, category: newProduct.category, name: newProduct.name, price: newProduct.price, count: 1) { response in
             switch response.result {
             case .success(let response):
                 print(response)
