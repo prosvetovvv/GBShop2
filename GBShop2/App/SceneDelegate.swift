@@ -10,12 +10,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let requestFactory = RequestFactory(sessionQueue: AppConfig.sessionQueue, baseUrl: AppConfig.baseUrl)
+        let accountRequestFactory = requestFactory.makeAccountRequestFactory()
         let basketRequestFactory = requestFactory.makeBasketRequestFactory()
         let productRequestFactory = requestFactory.makeProductRequestFactory()
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
+        //window?.rootViewController = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
+        window?.rootViewController = LoginVC(accountRequestFactory: accountRequestFactory,
+                                             productRequestFactory: productRequestFactory,
+                                             basketRequestFactory: basketRequestFactory)
         window?.makeKeyAndVisible()
     }
 }

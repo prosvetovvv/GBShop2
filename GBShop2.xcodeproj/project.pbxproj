@@ -15,6 +15,8 @@
 		E1C3C03F264286C2000BA731 /* ProductVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C03E264286C2000BA731 /* ProductVC.swift */; };
 		E1C3C04426428813000BA731 /* ProductView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C04326428813000BA731 /* ProductView.swift */; };
 		E1C3C0492642CF75000BA731 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C0482642CF75000BA731 /* AppConfig.swift */; };
+		E1C3C0532643BF9B000BA731 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C0522643BF9B000BA731 /* LoginVC.swift */; };
+		E1C3C0582643BFBC000BA731 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C0572643BFBC000BA731 /* LoginView.swift */; };
 		E1D50C472636C92400E9F688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50C462636C92400E9F688 /* AppDelegate.swift */; };
 		E1D50C502636C92500E9F688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D50C4F2636C92500E9F688 /* Assets.xcassets */; };
 		E1D50C532636C92500E9F688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D50C512636C92500E9F688 /* LaunchScreen.storyboard */; };
@@ -89,6 +91,8 @@
 		E1C3C03E264286C2000BA731 /* ProductVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductVC.swift; sourceTree = "<group>"; };
 		E1C3C04326428813000BA731 /* ProductView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductView.swift; sourceTree = "<group>"; };
 		E1C3C0482642CF75000BA731 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		E1C3C0522643BF9B000BA731 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		E1C3C0572643BFBC000BA731 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		E1D50C432636C92400E9F688 /* GBShop2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D50C462636C92400E9F688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1D50C4F2636C92500E9F688 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -196,6 +200,22 @@
 			path = Products;
 			sourceTree = "<group>";
 		};
+		E1C3C0502643BB57000BA731 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		E1C3C0512643BF6C000BA731 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3C0522643BF9B000BA731 /* LoginVC.swift */,
+				E1C3C0572643BFBC000BA731 /* LoginView.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		E1D50C3A2636C92400E9F688 = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +241,8 @@
 		E1D50C452636C92400E9F688 /* GBShop2 */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3C0512643BF6C000BA731 /* Login */,
+				E1C3C0502643BB57000BA731 /* Account */,
 				E1C3C03526417BA6000BA731 /* Products */,
 				E1D50D6126382C9C00E9F688 /* Category */,
 				E1D50D6026382C5700E9F688 /* Basket */,
@@ -727,6 +749,7 @@
 				E1D50D7B2639AD4100E9F688 /* BasketItem.swift in Sources */,
 				E1D50CC42636CD3F00E9F688 /* AccountRequestFactory.swift in Sources */,
 				E1D50D532638239000E9F688 /* SceneDelegate.swift in Sources */,
+				E1C3C0532643BF9B000BA731 /* LoginVC.swift in Sources */,
 				E1D50CF32636CEAD00E9F688 /* RequestRouter.swift in Sources */,
 				E1D50CF52636CEAD00E9F688 /* AbstractRequestFactory.swift in Sources */,
 				E1D50CDE2636CDD300E9F688 /* LoginResponse.swift in Sources */,
@@ -740,6 +763,7 @@
 				E1D50D6D2639AA9900E9F688 /* BasketRequestFactory.swift in Sources */,
 				E1D50D2F2636EFE800E9F688 /* DeleteFeedbackResponse.swift in Sources */,
 				E1D50D882639CB8300E9F688 /* BasketRequest.swift in Sources */,
+				E1C3C0582643BFBC000BA731 /* LoginView.swift in Sources */,
 				E1D50D222636DFC400E9F688 /* FeedbackRequest.swift in Sources */,
 				E1D50CDB2636CDD300E9F688 /* User.swift in Sources */,
 				E1D50CBB2636CD1400E9F688 /* AccountRequestModels.swift in Sources */,
