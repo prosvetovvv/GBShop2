@@ -9,18 +9,14 @@ import UIKit
 
 class LoginVC: UIViewController {
     private let accountRequestFactory: AccountRequestFactory
-    private let productRequestFactory: ProductRequestFactory
-    private let basketRequestFactory: BasketRequestFactory
-    private let destinationVC: TabBarVC
+    private let tabBarVC: TabBarVC
     private let rootView = LoginView()
     
     // MARK: - Init
     
-    init(accountRequestFactory: AccountRequestFactory, productRequestFactory: ProductRequestFactory, basketRequestFactory: BasketRequestFactory) {
+    init(accountRequestFactory: AccountRequestFactory, tabBarVC: TabBarVC) {
         self.accountRequestFactory = accountRequestFactory
-        self.productRequestFactory = productRequestFactory
-        self.basketRequestFactory = basketRequestFactory
-        self.destinationVC = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
+        self.tabBarVC = tabBarVC
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -68,8 +64,8 @@ class LoginVC: UIViewController {
     private func check(_ result: Int) {
         if result == 1 {
             DispatchQueue.main.async {
-                self.destinationVC.modalPresentationStyle = .fullScreen
-                self.present(self.destinationVC, animated: true, completion: nil)
+                self.tabBarVC.modalPresentationStyle = .fullScreen
+                self.present(self.tabBarVC, animated: true, completion: nil)
                 //self.navigationController?.pushViewController(self.destinationVC, animated: true)
             }
         } else {

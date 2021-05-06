@@ -13,13 +13,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let accountRequestFactory = requestFactory.makeAccountRequestFactory()
         let basketRequestFactory = requestFactory.makeBasketRequestFactory()
         let productRequestFactory = requestFactory.makeProductRequestFactory()
+        let tabBarVC = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         //window?.rootViewController = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
         window?.rootViewController = LoginVC(accountRequestFactory: accountRequestFactory,
-                                             productRequestFactory: productRequestFactory,
-                                             basketRequestFactory: basketRequestFactory)
+                                             tabBarVC: tabBarVC)
         window?.makeKeyAndVisible()
     }
 }
