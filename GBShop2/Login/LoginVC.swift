@@ -9,14 +9,16 @@ import UIKit
 
 class LoginVC: UIViewController {
     private let accountRequestFactory: AccountRequestFactory
+    private let signUpVC: SignUpVC
     private let tabBarVC: TabBarVC
     private let rootView = LoginView()
     
     // MARK: - Init
     
-    init(accountRequestFactory: AccountRequestFactory, tabBarVC: TabBarVC) {
+    init(accountRequestFactory: AccountRequestFactory, tabBarVC: TabBarVC, signUpVC: SignUpVC) {
         self.accountRequestFactory = accountRequestFactory
         self.tabBarVC = tabBarVC
+        self.signUpVC = signUpVC
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,7 +43,8 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScrollView()
-        setupLoginButton()
+        setupSignInButton()
+        setupSignUpButton()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -57,8 +60,12 @@ class LoginVC: UIViewController {
         rootView.scrollView.addGestureRecognizer(hideKeyboardGesture)
     }
     
-    private func setupLoginButton() {
-        rootView.loginButton.addTarget(self, action: #selector(tappedLoginButton), for: .touchUpInside)
+    private func setupSignInButton() {
+        rootView.signInButton.addTarget(self, action: #selector(tappedSignIn), for: .touchUpInside)
+    }
+    
+    private func setupSignUpButton() {
+        rootView.signUpButton.addTarget(self, action: #selector(tappedSighUp), for: .touchUpInside)
     }
     
     private func check(_ result: Int) {
@@ -66,7 +73,7 @@ class LoginVC: UIViewController {
             DispatchQueue.main.async {
                 self.tabBarVC.modalPresentationStyle = .fullScreen
                 self.present(self.tabBarVC, animated: true, completion: nil)
-                //self.navigationController?.pushViewController(self.destinationVC, animated: true)
+                //self.navigationController?.pushViewController(self.tabBarVC, animated: true)
             }
         } else {
             DispatchQueue.main.async {
@@ -80,7 +87,7 @@ class LoginVC: UIViewController {
     // MARK: - Objc
     
     @objc
-    private func tappedLoginButton() {
+    private func tappedSignIn() {
         let login = rootView.loginTextField.text ?? " "
         let password = rootView.passwordTextField.text ?? " "
         
@@ -93,6 +100,11 @@ class LoginVC: UIViewController {
                 debugPrint(error.localizedDescription)
             }
         }
+    }
+    
+    @objc
+    private func tappedSighUp() {
+        self.present(signUpVC, animated: true, completion: nil)
     }
     
     @objc

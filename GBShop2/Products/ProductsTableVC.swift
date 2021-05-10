@@ -49,8 +49,10 @@ class ProductsTableVC: UITableViewController {
             
             switch response.result {
             case .success(let products):
-                self.products = products
-                DispatchQueue.main.async { self.tableView.reloadData() }
+                DispatchQueue.main.async {
+                    self.products = products
+                    self.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }

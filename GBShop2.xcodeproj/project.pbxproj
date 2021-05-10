@@ -17,6 +17,10 @@
 		E1C3C0492642CF75000BA731 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C0482642CF75000BA731 /* AppConfig.swift */; };
 		E1C3C0532643BF9B000BA731 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C0522643BF9B000BA731 /* LoginVC.swift */; };
 		E1C3C0582643BFBC000BA731 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C0572643BFBC000BA731 /* LoginView.swift */; };
+		E1C3C06426451547000BA731 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C06326451547000BA731 /* SignUpVC.swift */; };
+		E1C3C06926451568000BA731 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C06826451568000BA731 /* SignUpView.swift */; };
+		E1C3C06F264519ED000BA731 /* GBTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C06E264519ED000BA731 /* GBTextField.swift */; };
+		E1C3C07426452291000BA731 /* GBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3C07326452291000BA731 /* GBButton.swift */; };
 		E1D50C472636C92400E9F688 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D50C462636C92400E9F688 /* AppDelegate.swift */; };
 		E1D50C502636C92500E9F688 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1D50C4F2636C92500E9F688 /* Assets.xcassets */; };
 		E1D50C532636C92500E9F688 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1D50C512636C92500E9F688 /* LaunchScreen.storyboard */; };
@@ -93,6 +97,10 @@
 		E1C3C0482642CF75000BA731 /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		E1C3C0522643BF9B000BA731 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		E1C3C0572643BFBC000BA731 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		E1C3C06326451547000BA731 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		E1C3C06826451568000BA731 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E1C3C06E264519ED000BA731 /* GBTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBTextField.swift; sourceTree = "<group>"; };
+		E1C3C07326452291000BA731 /* GBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GBButton.swift; sourceTree = "<group>"; };
 		E1D50C432636C92400E9F688 /* GBShop2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GBShop2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1D50C462636C92400E9F688 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1D50C4F2636C92500E9F688 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -203,6 +211,8 @@
 		E1C3C0502643BB57000BA731 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3C06326451547000BA731 /* SignUpVC.swift */,
+				E1C3C06826451568000BA731 /* SignUpView.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -214,6 +224,15 @@
 				E1C3C0572643BFBC000BA731 /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		E1C3C06D264519A3000BA731 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				E1C3C06E264519ED000BA731 /* GBTextField.swift */,
+				E1C3C07326452291000BA731 /* GBButton.swift */,
+			);
+			path = "Custom Views";
 			sourceTree = "<group>";
 		};
 		E1D50C3A2636C92400E9F688 = {
@@ -241,6 +260,7 @@
 		E1D50C452636C92400E9F688 /* GBShop2 */ = {
 			isa = PBXGroup;
 			children = (
+				E1C3C06D264519A3000BA731 /* Custom Views */,
 				E1C3C0512643BF6C000BA731 /* Login */,
 				E1C3C0502643BB57000BA731 /* Account */,
 				E1C3C03526417BA6000BA731 /* Products */,
@@ -740,9 +760,13 @@
 				E1C3C02C263AC45A000BA731 /* CategoryTableVC.swift in Sources */,
 				E1D50CC32636CD3F00E9F688 /* AccountRequest.swift in Sources */,
 				E1D50D1D2636DF4000E9F688 /* AddFeedbackResponse.swift in Sources */,
+				E1C3C06426451547000BA731 /* SignUpVC.swift in Sources */,
 				E1D50D272636E42F00E9F688 /* FeedbackRequestModels.swift in Sources */,
 				E1D50CF72636CEAD00E9F688 /* AbstractErrorParser.swift in Sources */,
+				E1C3C07426452291000BA731 /* GBButton.swift in Sources */,
+				E1C3C06926451568000BA731 /* SignUpView.swift in Sources */,
 				E1C3C03726417CCD000BA731 /* ProductsTableVC.swift in Sources */,
+				E1C3C06F264519ED000BA731 /* GBTextField.swift in Sources */,
 				E1D50D342636F90A00E9F688 /* GetFeedbackListResponse.swift in Sources */,
 				E1D50D392636F97100E9F688 /* Feedback.swift in Sources */,
 				E1D50CF42636CEAD00E9F688 /* DataRequest.swift in Sources */,

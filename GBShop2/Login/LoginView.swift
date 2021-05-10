@@ -10,12 +10,13 @@ import UIKit
 class LoginView: UIView {
     private let logoImageView = UIImageView()
     let scrollView = UIScrollView()
-    let loginTextField = UITextField()
-    let passwordTextField = UITextField()
-    let loginButton = UIButton()
+    let loginTextField = GBTextField(placeholder: "Login")
+    let passwordTextField = GBTextField(placeholder: "Password")
+    let signInButton = GBButton(backgroundColor: .systemBlue, title: "Sign in")
+    let signUpButton = UIButton()
     
     // MARK: - Init
-    
+        
     init() {
         super.init(frame: .zero)
         
@@ -23,7 +24,8 @@ class LoginView: UIView {
         setupLogoImageView()
         setupLoginTextField()
         setupPasswordTextField()
-        setupLoginButton()
+        setupSignInButton()
+        setupSignUpButton()
         
         setNeedsUpdateConstraints()
     }
@@ -52,38 +54,29 @@ class LoginView: UIView {
     }
     
     private func setupLoginTextField() {
-        
-        loginTextField.placeholder = "  Login"
         loginTextField.text = "user"
-        loginTextField.layer.cornerRadius = 10.0
-        loginTextField.layer.borderWidth = 1.5
-        loginTextField.layer.borderColor = UIColor.systemGray.cgColor
-        loginTextField.translatesAutoresizingMaskIntoConstraints = false
-        
+
         scrollView.addSubview(loginTextField)
     }
     
     private func setupPasswordTextField() {
-        passwordTextField.placeholder = "  Password"
         passwordTextField.text = "password"
         passwordTextField.isSecureTextEntry = true
-        passwordTextField.layer.cornerRadius = 10.0
-        passwordTextField.layer.borderWidth = 1.5
-        passwordTextField.layer.borderColor = UIColor.systemGray.cgColor
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.addSubview(passwordTextField)
     }
     
-    private func setupLoginButton() {
-        loginButton.backgroundColor = .systemBlue
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.layer.cornerRadius = 10.0
-        loginButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
-        loginButton.setTitleColor(.white, for: .normal)
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
+    private func setupSignInButton() {        
+        scrollView.addSubview(signInButton)
+    }
+    
+    private func setupSignUpButton() {
+        signUpButton.setTitle("Sign up", for: .normal)
+        signUpButton.setTitleColor(.systemBlue, for: .normal)
+        signUpButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        signUpButton.translatesAutoresizingMaskIntoConstraints = false
         
-        scrollView.addSubview(loginButton)
+        scrollView.addSubview(signUpButton)
     }
     
     //MARK: - Layout
@@ -111,12 +104,13 @@ class LoginView: UIView {
             passwordTextField.widthAnchor.constraint(equalToConstant: 300.0),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40.0),
             
-            loginButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            loginButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -40.0),
-            loginButton.widthAnchor.constraint(equalToConstant: 300.0),
-            loginButton.heightAnchor.constraint(equalToConstant: 40.0)
+            signInButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            signInButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -40.0),
+            signInButton.widthAnchor.constraint(equalToConstant: 300.0),
+            signInButton.heightAnchor.constraint(equalToConstant: 40.0),
+            
+            signUpButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            signUpButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20.0)
         ])
     }
-
-
 }

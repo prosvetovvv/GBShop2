@@ -49,8 +49,10 @@ class BasketTableVC: UITableViewController {
             
             switch response.result {
             case .success(let basketItems):
-                self.basketItems = basketItems
-                DispatchQueue.main.async { self.tableView.reloadData() }
+                DispatchQueue.main.async {
+                    self.basketItems = basketItems
+                    self.tableView.reloadData()
+                }
             case .failure(let error):
                 print(error.localizedDescription)
             }
