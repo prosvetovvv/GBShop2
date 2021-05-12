@@ -10,6 +10,7 @@ import UIKit
 class LoginView: UIView {
     private let logoImageView = UIImageView()
     let scrollView = UIScrollView()
+    let containerView = UIView()
     let loginTextField = GBTextField(placeholder: "Login")
     let passwordTextField = GBTextField(placeholder: "Password")
     let signInButton = GBButton(backgroundColor: .systemBlue, title: "Sign in")
@@ -21,6 +22,7 @@ class LoginView: UIView {
         super.init(frame: .zero)
         
         setupScrollView()
+        setupContainerView()
         setupLogoImageView()
         setupLoginTextField()
         setupPasswordTextField()
@@ -37,11 +39,17 @@ class LoginView: UIView {
     // MARK: - Private
     
     private func setupScrollView() {
-        //scrollView.contentSize = CGSize(width: frame.width, height: frame.height)
         scrollView.backgroundColor = .systemBackground
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(scrollView)
+    }
+    
+    private func setupContainerView() {
+        containerView.backgroundColor = .systemBackground
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.addSubview(containerView)
     }
     
     private func setupLogoImageView() {
@@ -49,25 +57,25 @@ class LoginView: UIView {
         logoImageView.layer.cornerRadius = 10
         logoImageView.clipsToBounds = true
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        
-        scrollView.addSubview(logoImageView)
+
+        containerView.addSubview(logoImageView)
     }
     
     private func setupLoginTextField() {
         loginTextField.text = "user"
-        
-        scrollView.addSubview(loginTextField)
+
+        containerView.addSubview(loginTextField)
     }
     
     private func setupPasswordTextField() {
         passwordTextField.text = "password"
         passwordTextField.isSecureTextEntry = true
-        
-        scrollView.addSubview(passwordTextField)
+
+        containerView.addSubview(passwordTextField)
     }
     
-    private func setupSignInButton() {        
-        scrollView.addSubview(signInButton)
+    private func setupSignInButton() {
+        containerView.addSubview(signInButton)
     }
     
     private func setupSignUpButton() {
@@ -75,8 +83,8 @@ class LoginView: UIView {
         signUpButton.setTitleColor(.systemBlue, for: .normal)
         signUpButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .subheadline)
         signUpButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        scrollView.addSubview(signUpButton)
+
+        containerView.addSubview(signUpButton)
     }
     
     //MARK: - Layout
@@ -89,28 +97,35 @@ class LoginView: UIView {
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            logoImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 60.0),
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            containerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            
+            logoImageView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: 60.0),
             logoImageView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             logoImageView.widthAnchor.constraint(equalToConstant: 180.0),
             logoImageView.heightAnchor.constraint(equalToConstant: 180.0),
             
-            loginTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            loginTextField.bottomAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: -10.0),
+            loginTextField.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            loginTextField.bottomAnchor.constraint(equalTo: containerView.centerYAnchor, constant: -10.0),
             loginTextField.widthAnchor.constraint(equalToConstant: 300.0),
             loginTextField.heightAnchor.constraint(equalToConstant: 40.0),
             
-            passwordTextField.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            passwordTextField.topAnchor.constraint(equalTo: scrollView.centerYAnchor, constant: 10.0),
+            passwordTextField.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            passwordTextField.topAnchor.constraint(equalTo: containerView.centerYAnchor, constant: 10.0),
             passwordTextField.widthAnchor.constraint(equalToConstant: 300.0),
             passwordTextField.heightAnchor.constraint(equalToConstant: 40.0),
             
-            signInButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            signInButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             signInButton.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -40.0),
             signInButton.widthAnchor.constraint(equalToConstant: 300.0),
             signInButton.heightAnchor.constraint(equalToConstant: 40.0),
             
-            signUpButton.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
-            signUpButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20.0)
+            signUpButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            signUpButton.bottomAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.bottomAnchor, constant: -20.0)
         ])
     }
 }

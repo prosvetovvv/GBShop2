@@ -9,13 +9,13 @@ import Foundation
 
 struct AppConfig {
     static let sessionQueue = DispatchQueue.global(qos: .utility)
-    static let baseUrl = URL(string: "https://powerful-reef-79731.herokuapp.com/")!
+    //static let baseUrl = URL(string: "https://powerful-reef-79731.herokuapp.com/")!
     
-//    static var baseUrl: URL {
-//        var components = URLComponents()
-//        components.scheme = "http"
-//        components.host = "localhost"
-//        components.port = 8080
-//        return components.url!
-//    }
+    static var baseUrl: URL {
+        var components = URLComponents()
+        components.scheme = "http"
+        components.host = "localhost"
+        components.port = 8080
+        return components.url!
+    }
 }
