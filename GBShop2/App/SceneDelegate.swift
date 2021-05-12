@@ -14,8 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let basketRequestFactory = requestFactory.makeBasketRequestFactory()
         let productRequestFactory = requestFactory.makeProductRequestFactory()
         
-        let signUpVC = SignUpVC(accountRequestFactory: accountRequestFactory)
         let tabBarVC = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
+        let signUpVC = RegisterAccountVC(accountRequestFactory: accountRequestFactory, tabBarVC: tabBarVC)
         let loginVC = LoginVC(accountRequestFactory: accountRequestFactory, tabBarVC: tabBarVC, signUpVC: signUpVC)
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)

@@ -9,13 +9,13 @@ import UIKit
 
 class LoginVC: UIViewController {
     private let accountRequestFactory: AccountRequestFactory
-    private let signUpVC: SignUpVC
+    private let signUpVC: RegisterAccountVC
     private let tabBarVC: TabBarVC
     private let rootView = LoginView()
     
     // MARK: - Init
     
-    init(accountRequestFactory: AccountRequestFactory, tabBarVC: TabBarVC, signUpVC: SignUpVC) {
+    init(accountRequestFactory: AccountRequestFactory, tabBarVC: TabBarVC, signUpVC: RegisterAccountVC) {
         self.accountRequestFactory = accountRequestFactory
         self.tabBarVC = tabBarVC
         self.signUpVC = signUpVC
@@ -61,11 +61,11 @@ class LoginVC: UIViewController {
     }
     
     private func setupSignInButton() {
-        rootView.signInButton.addTarget(self, action: #selector(tappedSignIn), for: .touchUpInside)
+        rootView.signInButton.addTarget(self, action: #selector(tappedSignInButton), for: .touchUpInside)
     }
     
     private func setupSignUpButton() {
-        rootView.signUpButton.addTarget(self, action: #selector(tappedSighUp), for: .touchUpInside)
+        rootView.signUpButton.addTarget(self, action: #selector(tappedSighUpButton), for: .touchUpInside)
     }
     
     private func check(_ result: Int) {
@@ -76,18 +76,14 @@ class LoginVC: UIViewController {
                 //self.navigationController?.pushViewController(self.tabBarVC, animated: true)
             }
         } else {
-            DispatchQueue.main.async {
-                let alert = UIAlertController(title: "Error", message: "Incorrect data", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+            self.presentGBAlertOnMainThread(title: "Error", message: "Incorrect data.", buttonTitle: "Ok", completionHandler: nil)
         }
     }
     
     // MARK: - Objc
     
     @objc
-    private func tappedSignIn() {
+    private func tappedSignInButton() {
         let login = rootView.loginTextField.text ?? " "
         let password = rootView.passwordTextField.text ?? " "
         
@@ -103,7 +99,7 @@ class LoginVC: UIViewController {
     }
     
     @objc
-    private func tappedSighUp() {
+    private func tappedSighUpButton() {
         self.present(signUpVC, animated: true, completion: nil)
     }
     

@@ -23,6 +23,17 @@ class AccountRequest: AbstractRequestFactory {
 }
 
 extension AccountRequest: AccountRequestFactory {
+    func register(user: User, completionHandler: @escaping (AFDataResponse<RegisterResponse>) -> Void) {
+        let requestModel = RegisterModel(baseUrl: baseUrl, user: user)
+        self.request(request: requestModel, completionHandler: completionHandler)
+    }
+    
+//    func register(email: String, password: String, name: String, lastname: String, card: String, completionHandler: @escaping (AFDataResponse<RegisterResponse>) -> Void) {
+//        //let requestModel = RegisterModel(baseUrl: baseUrl, email: email, password: password, name: name, lastname: lastname, creditCard: card)
+//        let requestModel = RegisterModel(baseUrl: baseUrl, user: user)
+//        self.request(request: requestModel, completionHandler: completionHandler)
+//    }
+    
     func login(userName: String, password: String, completionHandler: @escaping (AFDataResponse<LoginResponse>) -> Void) {
         let requestModel = LoginModel(baseUrl: baseUrl, login: userName, password: password)
         self.request(request: requestModel, completionHandler: completionHandler)

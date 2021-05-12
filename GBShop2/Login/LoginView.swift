@@ -16,7 +16,7 @@ class LoginView: UIView {
     let signUpButton = UIButton()
     
     // MARK: - Init
-        
+    
     init() {
         super.init(frame: .zero)
         
@@ -55,7 +55,7 @@ class LoginView: UIView {
     
     private func setupLoginTextField() {
         loginTextField.text = "user"
-
+        
         scrollView.addSubview(loginTextField)
     }
     

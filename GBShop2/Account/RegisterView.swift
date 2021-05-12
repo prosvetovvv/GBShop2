@@ -7,9 +7,10 @@
 
 import UIKit
 
-class SignUpView: UIView {
+class RegisterView: UIView {
     let stackView = UIStackView()
     let emailTextField = GBTextField(placeholder: "Email")
+    let passwordTextField = GBTextField(placeholder: "Password")
     let nameTextField = GBTextField(placeholder: "Name")
     let lastnameTextField = GBTextField(placeholder: "Lastname")
     let cardTextField = GBTextField(placeholder: "Card number")
@@ -22,6 +23,7 @@ class SignUpView: UIView {
         
         backgroundColor = .systemBackground
         setupStackView()
+        setupPasswordTextField()
         setupCardTextField()
         setupSignUpButton()
         
@@ -42,6 +44,7 @@ class SignUpView: UIView {
         stackView.spacing = 25.0
         
         stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(nameTextField)
         stackView.addArrangedSubview(lastnameTextField)
         stackView.addArrangedSubview(cardTextField)
@@ -49,6 +52,10 @@ class SignUpView: UIView {
         stackView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(stackView)
+    }
+    
+    private func setupPasswordTextField() {
+        passwordTextField.isSecureTextEntry = true
     }
     
     private func setupCardTextField() {
@@ -66,9 +73,12 @@ class SignUpView: UIView {
         NSLayoutConstraint.activate([
             stackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 40.0),
-
+            
             emailTextField.widthAnchor.constraint(equalToConstant: 300.0),
             emailTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            passwordTextField.widthAnchor.constraint(equalToConstant: 300.0),
+            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
             
             nameTextField.widthAnchor.constraint(equalToConstant: 300.0),
             nameTextField.heightAnchor.constraint(equalToConstant: 40),
@@ -84,8 +94,5 @@ class SignUpView: UIView {
             signUpButton.widthAnchor.constraint(equalToConstant: 300.0),
             signUpButton.heightAnchor.constraint(equalToConstant: 50.0)
         ])
-        
     }
-    
-
 }
