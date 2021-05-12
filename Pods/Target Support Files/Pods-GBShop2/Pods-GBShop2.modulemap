@@ -1,0 +1,6 @@
+framework module Pods_GBShop2 {
+  umbrella header "Pods-GBShop2-umbrella.h"
+
+  export *
+  module * { export * }
+}

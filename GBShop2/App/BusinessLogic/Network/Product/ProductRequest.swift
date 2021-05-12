@@ -8,16 +8,23 @@
 import Foundation
 import Alamofire
 
-struct ProductRequest: AbstractRequestFactory {
+class ProductRequest: AbstractRequestFactory {
     let errorParser: AbstractErrorParser
     let sessionManager: Session
     let queue: DispatchQueue
     let baseUrl: URL
+    
+    init(errorParser: AbstractErrorParser, sessionManager: Session, queue: DispatchQueue, baseUrl: URL) {
+        self.errorParser = errorParser
+        self.sessionManager = sessionManager
+        self.queue = queue
+        self.baseUrl = baseUrl
+    }
 }
 
 extension ProductRequest: ProductRequestFactory {
-    func getProductList(page: Int, id: Int, completionHandler: @escaping (AFDataResponse<ProductListResult>) -> Void) {
-        let requestModel = ProductList(baseUrl: baseUrl, page: page, id: id)
+    func getProductList(category: Category, completionHandler: @escaping (AFDataResponse<[Product]>) -> Void) {
+        let requestModel = ProductListModel(baseUrl: baseUrl, category: category)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
 }
