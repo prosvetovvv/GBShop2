@@ -7,14 +7,17 @@
 
 import Foundation
 
-struct Product:Codable {
-    let id: Int
+enum Category: String, CaseIterable {
+    case processors
+    case motherboards
+    case hdd
+    case ram
+    case video
+}
+
+struct Product: Codable {
+    let productID: Int
+    let category: String
     let name: String
-    let price: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id_product"
-        case name = "product_name"
-        case price = "price"
-    }
+    let price: Double
 }
