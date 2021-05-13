@@ -40,6 +40,7 @@ class LoginView: UIView {
     
     private func setupScrollView() {
         scrollView.backgroundColor = .systemBackground
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         addSubview(scrollView)

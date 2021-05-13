@@ -13,8 +13,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let accountRequestFactory = requestFactory.makeAccountRequestFactory()
         let basketRequestFactory = requestFactory.makeBasketRequestFactory()
         let productRequestFactory = requestFactory.makeProductRequestFactory()
+        let feedbackRequestFactory = requestFactory.makeFeedbackRequestFactory()
         
-        let tabBarVC = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory)
+        let tabBarVC = TabBarVC(basketRequestFactory: basketRequestFactory, productRequestFactory: productRequestFactory, feedbackRequestFactory: feedbackRequestFactory)
         let signUpVC = RegisterAccountVC(accountRequestFactory: accountRequestFactory, tabBarVC: tabBarVC)
         let loginVC = LoginVC(accountRequestFactory: accountRequestFactory, tabBarVC: tabBarVC, signUpVC: signUpVC)
         

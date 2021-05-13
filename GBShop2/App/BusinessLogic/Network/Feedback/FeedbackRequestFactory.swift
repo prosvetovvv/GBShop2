@@ -11,5 +11,5 @@ import Alamofire
 protocol FeedbackRequestFactory {
     func addFeedback(userID: Int, text: String, completionHandler: @escaping (AFDataResponse<AddFeedbackResponse>) -> Void)
     func deleteFeedback(feedbackID: Int, completionHandler: @escaping (AFDataResponse<DeleteFeedbackResponse>) -> Void)
-    func getFeedbackList(productID: Int, completionHandler: @escaping (AFDataResponse<GetFeedbackListResponse>) -> Void)
+    func getFeedbackList(name: String, completionHandler: @escaping (AFDataResponse<[Feedback]>) -> Void)
 }

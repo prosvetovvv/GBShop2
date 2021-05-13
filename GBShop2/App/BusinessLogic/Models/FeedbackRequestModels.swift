@@ -41,10 +41,10 @@ struct GEtFeedbackListModel: RequestRouter {
     let method: HTTPMethod = .post
     let path: String = "get_feedback_list"
     
-    let productID: Int
+    let name: String
     var parameters: Parameters? {
         return [
-            "productID": productID
+            "name": name
         ]
     }
 }

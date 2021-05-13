@@ -33,8 +33,8 @@ extension FeedbackRequest: FeedbackRequestFactory {
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     
-    func getFeedbackList(productID: Int, completionHandler: @escaping (AFDataResponse<GetFeedbackListResponse>) -> Void) {
-        let requestModel = GEtFeedbackListModel(baseUrl: baseUrl, productID: productID)
+    func getFeedbackList(name: String, completionHandler: @escaping (AFDataResponse<[Feedback]>) -> Void) {
+        let requestModel = GEtFeedbackListModel(baseUrl: baseUrl, name: name)
         self.request(request: requestModel, completionHandler: completionHandler)
     }
     

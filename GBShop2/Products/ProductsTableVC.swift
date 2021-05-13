@@ -10,15 +10,17 @@ import UIKit
 class ProductsTableVC: UITableViewController {
     private let productRequestFactory: ProductRequestFactory
     private let basketRequestFactory: BasketRequestFactory
+    private let feedbackRequestFactory: FeedbackRequestFactory
     private let cellId = "productCell"
     private var products = [Product]()
     private let category: Category
     
     // MARK: - Init
     
-    init(productRequestFactory: ProductRequestFactory, basketRequestFactory: BasketRequestFactory, category: Category) {
+    init(productRequestFactory: ProductRequestFactory, basketRequestFactory: BasketRequestFactory, feedbackRequestFactory: FeedbackRequestFactory, category: Category) {
         self.productRequestFactory = productRequestFactory
         self.basketRequestFactory = basketRequestFactory
+        self.feedbackRequestFactory = feedbackRequestFactory
         self.category = category
         super.init(nibName: nil, bundle: nil)
     }
@@ -78,8 +80,8 @@ class ProductsTableVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let product = products[indexPath.row]
-        let destinationVC = ProductVC(basketRequestFactory: basketRequestFactory, currentProduct: product)
-        destinationVC.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(destinationVC, animated: true)
+        let productVC = ProductVC(basketRequestFactory: basketRequestFactory, feedbackRequestFactory: feedbackRequestFactory, currentProduct: product)
+        productVC.modalPresentationStyle = .fullScreen
+        navigationController?.pushViewController(productVC, animated: true)
     }
 }

@@ -9,12 +9,18 @@ import UIKit
 
 class ProductView: UIView {
     private let productName: String
-    
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
     private let nameLabel = UILabel()
     private let productImageView = UIImageView()
-    private let countLabel = UILabel()
+    private let countStackView = UIStackView()
+    private let countLabel = GBSecondaryTitleLabel(fontSize: 20.0)
+    var feedbacks: [Feedback]? { didSet { updateFeedbacks() } }
+    let countTextField = GBTextField(placeholder: nil)
     let countPicker = UIPickerView()
+    let addToBasketButton = GBButton(backgroundColor: .systemBlue, title: "Add to basket")
     let addButton = UIButton()
+    let feedbackStackView = UIStackView()
     
     // MARK: - Init
     
@@ -23,11 +29,15 @@ class ProductView: UIView {
         super.init(frame: .zero)
         
         setupSelf()
+        setupScrollView()
+        setupContainerView()
         setupProductImageView()
         setupNameLabel()
+        setupCountStackView()
         setupCountLabel()
-        setupCountPicker()
+        setupCountTextField()
         setupAddButton()
+        setupFeedbackStackView()
         
         setNeedsUpdateConstraints()
     }
@@ -36,22 +46,37 @@ class ProductView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Setup UI elements
+    // MARK: - Private
     
-    func setupSelf() {
+    private func setupSelf() {
         backgroundColor = .systemBackground
     }
     
-    func setupProductImageView() {
+    private func setupScrollView() {
+        scrollView.backgroundColor = .systemBackground
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
+        addSubview(scrollView)
+    }
+    
+    private func setupContainerView() {
+        containerView.backgroundColor = .systemBackground
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        scrollView.addSubview(containerView)
+    }
+    
+    private func setupProductImageView() {
         productImageView.image = UIImage(systemName: "cube")
         productImageView.layer.cornerRadius = 10
         productImageView.clipsToBounds = true
         productImageView.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(productImageView)
+        containerView.addSubview(productImageView)
     }
     
-    func setupNameLabel() {
+    private func setupNameLabel() {
         nameLabel.text = productName
         nameLabel.textColor = .label
         nameLabel.textAlignment = .center
@@ -60,35 +85,57 @@ class ProductView: UIView {
         nameLabel.minimumScaleFactor = 0.9
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(nameLabel)
+        containerView.addSubview(nameLabel)
     }
     
-    func setupCountLabel() {
+    private func setupCountStackView() {
+        countStackView.axis = .horizontal
+        countStackView.alignment = .center
+        countStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        countStackView.addArrangedSubview(countLabel)
+        countStackView.addArrangedSubview(countTextField)
+        countStackView.addArrangedSubview(addToBasketButton)
+        
+        containerView.addSubview(countStackView)
+    }
+    
+    private func setupCountLabel() {
         countLabel.text = "Count:"
-        countLabel.textColor = .label
-        countLabel.textAlignment = .center
-        countLabel.font = UIFont.systemFont(ofSize: 20.0, weight: .medium)
-        countLabel.adjustsFontSizeToFitWidth = true
-        countLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(countLabel)
     }
     
-    func setupCountPicker() {
-        countPicker.translatesAutoresizingMaskIntoConstraints = false
-        
-        addSubview(countPicker)
+    private func setupCountTextField() {
+        countTextField.text = "1"
+        countTextField.keyboardType = .numberPad
     }
     
-    func setupAddButton() {
+    private func setupAddButton() {
         addButton.backgroundColor = .systemBlue
         addButton.setTitle("Add to basket", for: .normal)
         addButton.layer.cornerRadius = 10.0
         addButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .headline)
         addButton.setTitleColor(.white, for: .normal)
         addButton.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupFeedbackStackView() {
+        feedbackStackView.spacing = 15.0
+        feedbackStackView.axis = .vertical
+        feedbackStackView.translatesAutoresizingMaskIntoConstraints = false
         
-        addSubview(addButton)
+        containerView.addSubview(feedbackStackView)
+    }
+    
+    private func updateFeedbacks() {
+        guard let feedbacks = feedbacks else { return }
+        
+        feedbacks.forEach {
+            let feedbackLabel = GBBodyLabel(textAlignment: .left)
+            feedbackLabel.text = $0.text
+            feedbackStackView.addArrangedSubview(feedbackLabel)
+        }
+        
+        feedbackStackView.setNeedsDisplay()
     }
     
     // MARK: - Layout
@@ -96,29 +143,45 @@ class ProductView: UIView {
     override func updateConstraints() {
         super.updateConstraints()
         NSLayoutConstraint.activate([
-            productImageView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50.0),
-            productImageView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            containerView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor),
+            containerView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            containerView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            
+            productImageView.topAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.topAnchor, constant: 50.0),
+            productImageView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
             productImageView.widthAnchor.constraint(equalToConstant: 150.0),
             productImageView.heightAnchor.constraint(equalToConstant: 150.0),
             
             nameLabel.topAnchor.constraint(equalTo: productImageView.bottomAnchor, constant: 50.0),
-            nameLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30.0),
-            nameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30.0),
+            nameLabel.leadingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.leadingAnchor, constant: 30.0),
+            nameLabel.trailingAnchor.constraint(equalTo: containerView.safeAreaLayoutGuide.trailingAnchor, constant: -30.0),
             nameLabel.heightAnchor.constraint(equalToConstant: 35.0),
             
-            countLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40.0),
-            countLabel.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 30.0),
-            countLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -30.0),
+            countStackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 40.0),
+            countStackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            countStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20.0),
+            countStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20.0),
+            
             countLabel.heightAnchor.constraint(equalToConstant: 20.0),
             
-            countPicker.topAnchor.constraint(equalTo: countLabel.bottomAnchor, constant: 10.0),
-            countPicker.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
-            countPicker.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            countTextField.widthAnchor.constraint(equalToConstant: 40.0),
+            countTextField.heightAnchor.constraint(equalToConstant: 40.0),
+            countTextField.trailingAnchor.constraint(equalTo: addToBasketButton.leadingAnchor, constant: -20.0),
             
-            addButton.centerXAnchor.constraint(equalTo: centerXAnchor),
-            addButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -50.0),
-            addButton.widthAnchor.constraint(equalToConstant: 200.0),
-            addButton.heightAnchor.constraint(equalToConstant: 50.0)
+            addToBasketButton.widthAnchor.constraint(equalToConstant: 180.0),
+            addToBasketButton.heightAnchor.constraint(equalToConstant: 40.0),
+            
+            feedbackStackView.topAnchor.constraint(equalTo: countStackView.bottomAnchor, constant: 20.0),
+            feedbackStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 10.0),
+            feedbackStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10.0)
         ])
     }
 }
